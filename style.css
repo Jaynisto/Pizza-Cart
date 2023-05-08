@@ -1,0 +1,108 @@
+body {
+	font-family: 'Courier New', Courier, monospace;
+}
+
+@media only screen and (min-width: 600px) {
+	.pizzaCount {
+		font-weight: bold;
+	}
+	
+	.small {
+		width: 35px;
+		height: 35px;
+	}
+	
+	.medium {
+		width: 35px;
+		height: 35px;
+	}
+	
+	.large {
+		width: 35px;
+		height: 35px;
+	}
+	
+	.myPizzas {
+		display: flex;
+		justify-content: space-around;
+	}
+	
+	.smallContainer {
+		height: 375px;
+		width: 275px;
+		background-color: rgb(102, 129, 74);
+		text-align: center;
+	}
+	
+	.mediumContainer {
+		height: 375px;
+		width: 275px;
+		background-color: rgb(180, 243, 117);
+		text-align: center;
+	}
+	
+	.largeContainer {
+		height: 375px;
+		width: 275px;
+		background-color: rgb(227, 245, 64);
+		text-align: center;
+	}
+	
+	.total {
+		text-align: center;
+	}
+	
+}
+
+@media only screen and (max-width: 600px) {
+	.pizzaCount {
+		font-weight: bold;
+	}
+	
+	.small {
+		width: 35px;
+		height: 35px;
+	}
+	
+	.medium {
+		width: 35px;
+		height: 35px;
+	}
+	
+	.large {
+		width: 35px;
+		height: 35px;
+	}
+	
+	.myPizzas {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+	
+	.smallContainer {
+		height: 375px;
+		width: 275px;
+		background-color: rgb(102, 129, 74);
+		text-align: center;
+	}
+	
+	.mediumContainer {
+		height: 375px;
+		width: 275px;
+		background-color: rgb(180, 243, 117);
+		text-align: center;
+	}
+	
+	.largeContainer {
+		height: 375px;
+		width: 275px;
+		background-color: rgb(227, 245, 64);
+		text-align: center;
+	}
+	
+	.total {
+		text-align: center;
+	}
+  }
+

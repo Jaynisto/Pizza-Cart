@@ -1,44 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pizza Cart With AlpineJS</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<script src="//unpkg.com/alpinejs" defer></script>
+	<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <div class="container">
+	<div class="container" x-data="{smallPrice : '31.99', mediumPrice : '58.99', largePrice:'87.50', total:0}">
 		<div class="row" >
 			<div class="col" >
 				<h1>Pizza Planet</h1>
 			</div>
 		</div>
 
-		<div class="row" >
-			<div class="col" >
-				<input type="text" class="searchBox" placeholder="search for pizzas" >
-			</div>
-			<div>
-				There are <span class="pizzaCount"></span> pizzas.
-			</div>
-		</div>
+		<div class="myPizzas">
+            <div class="smallContainer">
+                <img class="small" src="images/pizza.png">
+                <p x-text="smallPrice"></p>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+                    when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                </p>
+                <button @click="total = Number(total) + Number(smallPrice)">Add To Cart</button>
+            </div>
+            <div class="mediumContainer">
+                <img class="medium" src="images/pizza1.png">
+                <p x-text="mediumPrice"></p>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+                    when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                </p>
+                <button @click="total = Number(total) + Number(mediumPrice)">Add To Cart</button>
 
-		<div class="row" >
-			<div class="col" >
-				<table class="table" >
-					<thead>
-						<th>Size</th>
-						<th>Type</th>
-						<th>Flavour</th>
-						<th>Price</th>
-					</thead>
-					<tbody class='pizzas'>
-						
-					</tbody>
-				</table>
-			</div>
-		</div>
+            </div>
+            <div class="largeContainer">
+                <img class="large" src="images/pizza 2.png">
+                <p x-text="largePrice"></p>
+                <p>
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+                    when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                </p>
+                <button @click="total = Number(total) + Number(largePrice)">Add To Cart</button>
+
+            </div>
+        </div>
+        <div class="total">
+            <hr>
+            <p>Total</p>
+            <h4 x-text="total"></h4>
+        </div>
 	</div>
-    
 </body>
+
 </html>
