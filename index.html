@@ -11,7 +11,7 @@
 </head>
 
 <body>
-	<div class="container" x-data="{smallPrice : '31.99', mediumPrice : '58.99', largePrice:'87.99', total:0, pizza:'type'}">
+	<div class="container" x-data="{smallPrice : '31.99', mediumPrice : '58.99', largePrice:'87.99', total:'178.99', totalAmount:'0', smallPizzaTotal: '31.99', mediumPizzaTotal: '58.99', largePizzaTotal : '87.99'}">
 		<div class="row" >
 			<div class="col" >
 				<h1>Pizza Planet</h1>
@@ -28,7 +28,7 @@
                     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
                     when an unknown printer took a galley of type and scrambled it to make a type specimen book.
                 </p>
-                <button @click="total = Number(total) + Number(smallPrice)">Add To Cart</button>
+                <button @click="smallPizzaTotal = Number(smallPizzaTotal) + Number(smallPrice)">Add To Cart</button>
             </div>
             <div class="mediumContainer">
                 <img class="medium" src="images/pizza1.png">
@@ -39,7 +39,7 @@
                     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
                     when an unknown printer took a galley of type and scrambled it to make a type specimen book.
                 </p>
-                <button @click="total = Number(total) + Number(mediumPrice)">Add To Cart</button>
+                <button @click="mediumPizzaTotal = Number(mediumPizzaTotal) + Number(mediumPrice)">Add To Cart</button>
 
             </div>
             <div class="largeContainer">
@@ -52,27 +52,22 @@
                     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
                     when an unknown printer took a galley of type and scrambled it to make a type specimen book.
                 </p>
-                <button @click="total = Number(total) + Number(largePrice)">Add To Cart</button>
+                <button @click="largePizzaTotal = Number(largePizzaTotal) + Number(largePrice)">Add To Cart</button>
 
             </div>
         </div>
         <div class="total">
             <hr>
-            <h5>Small Pizza : R39.99</h5>
-            <h5>Medium Pizza : R58.99</h5>
-            <h5>Large Pizza : R87.99</h5>
-            <p>Total</p>
-            <h4 x-text="total"></h4>
+            <span>
+                <h5>Small Pizza: <p x-text="smallPizzaTotal"></p></h5>
+                <h5>Medium Pizza : <p x-text="mediumPizzaTotal"></p></h5>
+                <h5>Large Pizza : <p x-text="largePizzaTotal"></p></h5>
+                <h3>Total  Cost: </h3>
+                <h4 x-text="total"></h4>
+                <p x-text="totalAmount"></p>
+            </span>
             
-            <template x-if="total=='39.99'">
-                <p>Small Pizza</p>
-            </template>
-            <template x-if="pizza=='58.99'">
-                <p>Medium Pizza</p>
-            </template>
-            <template x-if="pizza=='87.99'">
-                <p>Large Pizza</p>
-            </template>
+            
             <button @click="pizza = 'type'">Check Out</button>
             
         </div>
