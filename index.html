@@ -11,7 +11,7 @@
 </head>
 
 <body>
-	<div class="container" x-data="{smallPrice : '31.99', mediumPrice : '58.99', largePrice:'87.50', total:0}">
+	<div class="container" x-data="{smallPrice : '31.99', mediumPrice : '58.99', largePrice:'87.99', total:0, pizza:'type'}">
 		<div class="row" >
 			<div class="col" >
 				<h1>Pizza Planet</h1>
@@ -21,6 +21,8 @@
 		<div class="myPizzas">
             <div class="smallContainer">
                 <img class="small" src="images/pizza.png">
+                <H3>Small Pizza</H3>
+                <h5>Price</h5>
                 <p x-text="smallPrice"></p>
                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
@@ -30,6 +32,8 @@
             </div>
             <div class="mediumContainer">
                 <img class="medium" src="images/pizza1.png">
+                <H3>Medium Pizza</H3>
+                <h5>Price</h5>
                 <p x-text="mediumPrice"></p>
                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
@@ -40,6 +44,8 @@
             </div>
             <div class="largeContainer">
                 <img class="large" src="images/pizza 2.png">
+                <H3>Large Pizza</H3>
+                <h5>Price</h5>
                 <p x-text="largePrice"></p>
                 <p>
                     Lorem Ipsum is simply dummy text of the printing and typesetting industry.
@@ -52,8 +58,23 @@
         </div>
         <div class="total">
             <hr>
+            <h5>Small Pizza : R39.99</h5>
+            <h5>Medium Pizza : R58.99</h5>
+            <h5>Large Pizza : R87.99</h5>
             <p>Total</p>
             <h4 x-text="total"></h4>
+            
+            <template x-if="total=='39.99'">
+                <p>Small Pizza</p>
+            </template>
+            <template x-if="pizza=='58.99'">
+                <p>Medium Pizza</p>
+            </template>
+            <template x-if="pizza=='87.99'">
+                <p>Large Pizza</p>
+            </template>
+            <button @click="pizza = 'type'">Purchase</button>
+            
         </div>
 	</div>
 </body>
