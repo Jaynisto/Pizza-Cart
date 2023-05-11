@@ -11,7 +11,31 @@
 </head>
 
 <body>
-	<div class="container" x-data="{smallPrice : '31.99', mediumPrice : '58.99', largePrice:'87.99', total:'178.99', totalAmount:'0', smallPizzaTotal: '31.99', mediumPizzaTotal: '58.99', largePizzaTotal : '87.99'}">
+	<div class="container" x-data="{
+        smallPrice : '31.99', 
+        mediumPrice : '58.99', 
+        largePrice:'87.99',
+        smallPizzaTotal : 0,
+        mediumPizzaTotal : 0,
+        largePizzaTotal : 0,
+        cost : {
+            smallPizzaTotal : 31.99,
+            mediumPizzaTotal : 58.99,
+            largePizzaTotal : 87.99
+        },
+        get smallPizza(){
+            return this.smallPizzaTotal * this.cost.smallPizzaTotal
+        },
+        get mediumPizza(){
+            return this.mediumPizzaTotal * this.cost.mediumPizzaTotal
+        },
+        get largePizza(){
+            return this.largePizzaTotal * this.cost.largePizzaTotal
+        },
+        get totalAmount(){
+            return this.smallPizza + this.mediumPizza + this.largePizza
+        }
+        }">
 		<div class="row" >
 			<div class="col" >
 				<h1>Pizza Planet</h1>
@@ -28,7 +52,7 @@
                     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
                     when an unknown printer took a galley of type and scrambled it to make a type specimen book.
                 </p>
-                <button @click="smallPizzaTotal = Number(smallPizzaTotal) + Number(smallPrice)">Add To Cart</button>
+                <button @click="smallPizzaTotal++">Add To Cart</button>
             </div>
             <div class="mediumContainer">
                 <img class="medium" src="images/pizza1.png">
@@ -39,7 +63,7 @@
                     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
                     when an unknown printer took a galley of type and scrambled it to make a type specimen book.
                 </p>
-                <button @click="mediumPizzaTotal = Number(mediumPizzaTotal) + Number(mediumPrice)">Add To Cart</button>
+                <button @click="mediumPizzaTotal++">Add To Cart</button>
 
             </div>
             <div class="largeContainer">
@@ -52,23 +76,63 @@
                     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
                     when an unknown printer took a galley of type and scrambled it to make a type specimen book.
                 </p>
-                <button @click="largePizzaTotal = Number(largePizzaTotal) + Number(largePrice)">Add To Cart</button>
+                <button @click="largePizzaTotal++">Add To Cart</button>
 
             </div>
         </div>
         <div class="total">
             <hr>
             <span>
-                <h5>Small Pizza: <p x-text="smallPizzaTotal"></p></h5>
-                <h5>Medium Pizza : <p x-text="mediumPizzaTotal"></p></h5>
-                <h5>Large Pizza : <p x-text="largePizzaTotal"></p></h5>
-                <h3>Total  Cost: </h3>
-                <h4 x-text="total"></h4>
-                <p x-text="totalAmount"></p>
+                <h2>Shopping Cart</h2>
+                <table>
+                    <tr>
+                      <th><h4>Pizza Type</h4></th>
+                      <th><h4>Quantity</h4></th>
+                      <th>Amount</th>
+                    </tr>
+                    <tr>
+                      <td><h6>Small Pizza</h6></td>
+                      <td><div x-text="smallPizzaTotal"></div></td>
+                      <td><div x-text="smallPizza"></div></td>
+                      <td>
+                        <button @click="if (smallPizzaTotal > 0) smallPizzaTotal--">-</button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><h6>Medium Pizza</h6></td>
+                      <td><div x-text="mediumPizzaTotal"></div></td>
+                      <td><div x-text="mediumPizza"></div></td>
+                      <td>
+                        <button @click="if (mediumPizzaTotal > 0) mediumPizzaTotal--">-</button>
+                      </td>
+                    </tr>
+                    <tr>
+                        <td><h6>Large Pizza</h6></td>
+                        <td><div x-text="largePizzaTotal"></div></td>
+                        <td><div x-text="largePizza"></div></td>
+                        <td>
+                            <button @click="if (largePizzaTotal > 0) largePizzaTotal--">-</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><h6></h6></td>
+                        <td><div></div></td>
+                        <td><h3><div x-text="totalAmount"></div></h3></td>
+                    </tr>
+                  </table>
+                      <!-- <td>
+                        <div x-text="smallCost"></div>
+                      </td>
+                      <td>
+                        <button x-on:click="small++">+</button>
+                      </td>
+                      <td>
+                        <button x-on:click="if (small > 0) small--">-</button>
+                      </td> -->                
             </span>
             
             
-            <button @click="pizza = 'type'">Check Out</button>
+            <button @click="">Check Out</button>
             
         </div>
 	</div>
